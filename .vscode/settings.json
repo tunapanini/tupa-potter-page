@@ -1,0 +1,7 @@
+{
+  "eslint.enable": true,
+  "eslint.packageManager": "yarn",
+  "eslint.lintTask.options": "yarn lint",
+  "eslint.format.enable": true,
+  "eslint.alwaysShowStatus": true
+}
