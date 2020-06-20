@@ -3,5 +3,8 @@
   "eslint.packageManager": "yarn",
   "eslint.lintTask.options": "yarn lint",
   "eslint.format.enable": true,
-  "eslint.alwaysShowStatus": true
+  "eslint.alwaysShowStatus": true,
+  "autoimport.doubleQuotes": true,
+  "autoimport.filesToScan": "**/*.{js,jsx,ts,tsx}",
+  "autoimport.showNotifications": true
 }
