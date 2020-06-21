@@ -1,14 +1,40 @@
-import React from "react";
+/** @jsx jsx */
+import { css, jsx } from "@emotion/core";
 
 import { Counter } from "./features/counter/Counter";
 import logo from "./logo.svg";
-import "./App.css";
+
+import { AppLogoFloat } from "styles/keyframes";
+
+const styles = {
+  App: css`
+    text-align: center;
+  `,
+  AppLogo: css`
+    height: 40vmin;
+    pointer-events: none;
+    @media (prefers-reduced-motion: no-preference) {
+      animation: ${AppLogoFloat} infinite 3s ease-in-out;
+    }
+  `,
+  AppHeader: css`
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+  `,
+  AppLink: css`
+    color: rgb(112, 76, 182);
+  `,
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img alt="logo" className="App-logo" src={logo} />
+    <div css={styles.App}>
+      <header css={styles.AppHeader}>
+        <img alt="logo" css={styles.AppLogo} src={logo} />
         <Counter />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -16,7 +42,7 @@ function App() {
         <span>
           <span>Learn </span>
           <a
-            className="App-link"
+            css={styles.AppLink}
             href="https://reactjs.org/"
             rel="noopener noreferrer"
             target="_blank"
@@ -25,7 +51,7 @@ function App() {
           </a>
           <span>, </span>
           <a
-            className="App-link"
+            css={styles.AppLink}
             href="https://redux.js.org/"
             rel="noopener noreferrer"
             target="_blank"
@@ -34,7 +60,7 @@ function App() {
           </a>
           <span>, </span>
           <a
-            className="App-link"
+            css={styles.AppLink}
             href="https://redux-toolkit.js.org/"
             rel="noopener noreferrer"
             target="_blank"
@@ -43,7 +69,7 @@ function App() {
           </a>
           ,<span> and </span>
           <a
-            className="App-link"
+            css={styles.AppLink}
             href="https://react-redux.js.org/"
             rel="noopener noreferrer"
             target="_blank"

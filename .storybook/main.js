@@ -6,7 +6,5 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-knobs",
     "@storybook/addon-a11y/register",
-    "@storybook/addon-viewport/register",
-    "addon-redux/register",
   ],
 };

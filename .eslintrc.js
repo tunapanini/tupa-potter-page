@@ -22,7 +22,7 @@ module.exports = {
     ecmaVersion: 11,
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "emotion"],
   rules: {
     "import/extensions": [
       "error",
@@ -35,6 +35,7 @@ module.exports = {
         },
       },
     ],
+    "sort-imports": ["error", { ignoreDeclarationSort: true }],
     "import/order": [
       "error",
       {
@@ -53,6 +54,10 @@ module.exports = {
     ],
     "react/jsx-sort-props": ["error"],
     "@typescript-eslint/no-unused-vars": ["error", { args: "none" }],
+    "emotion/jsx-import": "error",
+    "emotion/no-vanilla": "error",
+    "emotion/import-from-emotion": "error",
+    "emotion/styled-import": "error",
   },
   settings: {
     "import/resolver": {
