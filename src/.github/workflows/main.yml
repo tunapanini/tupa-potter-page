@@ -1,0 +1,33 @@
+name: Test, Build and Deploy
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false 
+
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+        
+      - name: Test 🧪
+        run: yarn test  # Test Script Here
+        env:
+          CI: true
+        
+      - name: Build 🔧
+        run: yarn build  # Build Script Here
+        env:
+          PUBLIC_URL: https://tunapanini.github.io/tupa-potter-page
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build  # build result path Here (CRA: build, vue-cli: dist)
