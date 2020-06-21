@@ -83,6 +83,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --fix --cache",
-    "*.{css,scss,json,md}": "prettier --write"
+    "*.{css,scss,json,md}": "prettier --write",
+    "*.{jsx,tsx}": "yarn test --bail --findRelatedTests"
   }
 }
