@@ -5,8 +5,9 @@ import { Counter } from "./features/counter/Counter";
 import logo from "./logo.svg";
 
 import { AppLogoFloat } from "styles/keyframes";
+import { ThemeStyles } from "styles/theme";
 
-const styles = {
+const styles: ThemeStyles = {
   App: css`
     text-align: center;
   `,
