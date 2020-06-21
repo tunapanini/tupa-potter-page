@@ -3,16 +3,17 @@ import { css } from "@emotion/core";
 import { button } from "styles/common";
 
 const row = css`
+  label: row;
   display: flex;
   align-items: center;
   justify-content: center;
-
   &:not(:last-child) {
     margin-bottom: 16px;
   }
 `;
 
 const value = css`
+  label: value;
   font-size: 78px;
   padding-left: 16px;
   padding-right: 16px;
@@ -21,6 +22,7 @@ const value = css`
 `;
 
 const textbox = css`
+  label: textbox;
   font-size: 32px;
   padding: 2px;
   width: 64px;
@@ -29,6 +31,7 @@ const textbox = css`
 `;
 
 const asyncButton = css`
+  label: asyncButton;
   ${button};
   position: relative;
   margin-left: 8px;

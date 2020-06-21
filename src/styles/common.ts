@@ -1,6 +1,7 @@
 import { css } from "@emotion/core";
 
 export const button = css`
+  label: button;
   appearance: none;
   background: none;
   font-size: 32px;
