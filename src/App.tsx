@@ -1,10 +1,13 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 
+import { NavLink, Redirect, Route, Switch } from "react-router-dom";
+
 import { Counter } from "./features/counter/Counter";
 import logo from "./logo.svg";
 
-import { AppLogoFloat } from "styles/keyframes";
+import SortingHat from "features/sortingHat/SortingHat";
+import { floating } from "styles/keyframes";
 import { ThemeStyles } from "styles/theme";
 
 const styles: ThemeStyles = {
@@ -15,7 +18,7 @@ const styles: ThemeStyles = {
     height: 40vmin;
     pointer-events: none;
     @media (prefers-reduced-motion: no-preference) {
-      animation: ${AppLogoFloat} infinite 3s ease-in-out;
+      animation: ${floating} infinite 3s ease-in-out;
     }
   `,
   AppHeader: css`
@@ -26,8 +29,16 @@ const styles: ThemeStyles = {
     justify-content: center;
     font-size: calc(10px + 2vmin);
   `,
-  AppLink: css`
+  link: css`
     color: rgb(112, 76, 182);
+  `,
+  navigation: css`
+    display: flex;
+
+    & > li {
+      margin: 0 12px;
+      padding: 8px 0;
+    }
   `,
 };
 
@@ -36,48 +47,29 @@ function App() {
     <div css={styles.App}>
       <header css={styles.AppHeader}>
         <img alt="logo" css={styles.AppLogo} src={logo} />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            css={styles.AppLink}
-            href="https://reactjs.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            css={styles.AppLink}
-            href="https://redux.js.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            css={styles.AppLink}
-            href="https://redux-toolkit.js.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            css={styles.AppLink}
-            href="https://react-redux.js.org/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            React Redux
-          </a>
-        </span>
+        <ul css={styles.navigation}>
+          <li>
+            <NavLink css={styles.link} to="/counter">
+              Counter
+            </NavLink>
+          </li>
+          <li>
+            <NavLink css={styles.link} to="/sorting-hat">
+              Sorting Hat
+            </NavLink>
+          </li>
+        </ul>
+        <Switch>
+          <Route path="/counter">
+            <Counter />
+          </Route>
+          <Route path="/sorting-hat">
+            <SortingHat />
+          </Route>
+          <Route path="*">
+            <Redirect to="/counter" />
+          </Route>
+        </Switch>
       </header>
     </div>
   );

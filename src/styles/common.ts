@@ -1,5 +1,7 @@
 import { css } from "@emotion/core";
 
+import { rotating as rotatingKeyframes } from "./keyframes";
+
 export const button = css`
   label: button;
   appearance: none;
@@ -22,4 +24,27 @@ export const button = css`
   &:active {
     background-color: rgba(112, 76, 182, 0.2);
   }
+`;
+
+export const row = css`
+  label: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+`;
+
+export const value = css`
+  label: value;
+  font-size: 78px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 2px;
+  font-family: "Courier New", Courier, monospace;
+`;
+
+export const rotating = css`
+  animation: ${rotatingKeyframes} 2s linear infinite;
 `;

@@ -1,7 +1,6 @@
 import { keyframes } from "@emotion/core";
 
-export const AppLogoFloat = keyframes`
-
+export const floating = keyframes`
   0% {
     transform: translateY(0);
   }
@@ -12,3 +11,12 @@ export const AppLogoFloat = keyframes`
     transform: translateY(0px)
   }
   `;
+
+export const rotating = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
