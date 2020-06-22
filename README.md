@@ -1,4 +1,14 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# tupa-potter-page
+
+[potterapi](https://www.potterapi.com/) API를 활용하여 구현한 간단한 React + Redux 웹앱
+
+- [Create React App](https://github.com/facebook/create-react-app)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Emotion](https://emotion.sh/)
+- [Redux](https://redux.js.org/) + Redux Thunk \w [Redux Toolkit](https://redux-toolkit.js.org/)
+- [Material UI Icon](https://material-ui.com/components/material-icons/)
+- [Storybook](https://storybook.js.org/)
+- [Husky](https://github.com/typicode/husky) w\ [lint-staged](https://github.com/okonet/lint-staged)
 
 ## Available Scripts
 
@@ -16,6 +26,8 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+- CI 설정을 위해 --passWithNoTests --watchAll=false 옵션이 추가됨.
 
 ### `yarn build`
 
@@ -37,8 +49,27 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `yarn lint`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ESlint 적용
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `--ext js,jsx,ts,tsx` 옵션으로 특정 확장자에만 적용되도록 함.
+
+### `yarn storybook`
+
+Storybook을 9009번 포트로 실행
+
+### `yarn build-storybook`
+
+Storybook을 배포를 위해 빌드
+
+## Git Hooks
+
+Husky + lint-staged 를 이용하여 스테이징된 파일에 대하여 미리 정의된 커맨드를 실행하도록 깃훅을 설정한다. 설정은 `package.json` 의 `husky`와 `lint-staged` 프로퍼티를 참조.
+
+- `pre-commit`: 스테이징 파일의 확장자에 따라 ESLint, Prettier을 적용하고 관련된 Test 코드를 실행한다.
+
+깃훅이 실행되지 않거나 문제가 있으면, 각 Github Repo에서 확인한다.
+
+[Husky](https://github.com/typicode/husky)
+[lint-staged](https://github.com/okonet/lint-staged)
