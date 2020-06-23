@@ -12,6 +12,8 @@ import {
 import styles from "./sortingHatStyles";
 
 import LoadingContainer from "components/LoadingContainer";
+import { fontHarryP } from "styles/common";
+import { withTheme } from "styles/theme";
 
 function SortingHat() {
   const dispatch = useDispatch();
@@ -33,12 +35,12 @@ function SortingHat() {
           `}
           isLoading={isLoading}
         >
-          <span css={styles.value}>{sortingHat}</span>
+          <span css={[styles.value, fontHarryP]}>{sortingHat}</span>
         </LoadingContainer>
       </div>
       <div css={styles.row}>
         <button
-          css={styles.button}
+          css={withTheme([styles.button])}
           onClick={() => dispatch(setSortingHatAsync())}
         >
           Randomize

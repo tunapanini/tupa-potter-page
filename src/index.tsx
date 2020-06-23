@@ -1,4 +1,5 @@
 import { Global } from "@emotion/core";
+import { ThemeProvider } from "emotion-theming";
 import React from "react";
 import ReactDOM from "react-dom";
 
@@ -10,14 +11,17 @@ import { store } from "./app/store";
 import * as serviceWorker from "./serviceWorker";
 
 import global from "styles/global";
+import theme from "styles/theme";
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <Global styles={global} />
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </ThemeProvider>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById("root")

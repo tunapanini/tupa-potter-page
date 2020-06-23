@@ -1,6 +1,11 @@
 import { css } from "@emotion/core";
 
 export default css`
+  @font-face {
+    font-family: "HarryP";
+    src: url("./fonts/HarryP.ttf") format("truetype");
+  }
+
   * {
     box-sizing: border-box;
   }

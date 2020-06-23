@@ -1,8 +1,9 @@
 import { css } from "@emotion/core";
 
 import { rotating as rotatingKeyframes } from "./keyframes";
+import { Theme } from "./theme";
 
-export const button = css`
+export const button = (theme: Theme) => css`
   label: button;
   appearance: none;
   background: none;
@@ -11,18 +12,18 @@ export const button = css`
   padding-right: 12px;
   outline: none;
   border: 2px solid transparent;
-  color: rgb(112, 76, 182);
+  color: ${theme.colors.textPrimary[0]};
   padding-bottom: 4px;
   cursor: pointer;
-  background-color: rgba(112, 76, 182, 0.1);
+  background-color: ${theme.colors.primary[0]};
   border-radius: 2px;
   transition: all 0.15s;
   &:hover,
   &:focus {
-    border: 2px solid rgba(112, 76, 182, 0.4);
+    border: 2px solid ${theme.colors.secondary[0]};
   }
   &:active {
-    background-color: rgba(112, 76, 182, 0.2);
+    background-color: ${theme.colors.accent};
   }
 `;
 
@@ -47,4 +48,8 @@ export const value = css`
 
 export const rotating = css`
   animation: ${rotatingKeyframes} 2s linear infinite;
+`;
+
+export const fontHarryP = css`
+  font-family: HarryP;
 `;

@@ -3,25 +3,30 @@ import { css, jsx } from "@emotion/core";
 
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 
-import { Counter } from "./features/counter/Counter";
-import logo from "./logo.svg";
-
 import SortingHat from "features/sortingHat/SortingHat";
+import { fontHarryP } from "styles/common";
 import { floating } from "styles/keyframes";
-import { ThemeStyles } from "styles/theme";
+import { Theme } from "styles/theme";
 
-const styles: ThemeStyles = {
+const styles = {
   App: css`
     text-align: center;
   `,
   AppLogo: css`
+    label: AppLogo;
     height: 40vmin;
+    user-select: none;
     pointer-events: none;
+    font-size: 5em;
     @media (prefers-reduced-motion: no-preference) {
       animation: ${floating} infinite 3s ease-in-out;
     }
+    & > div + div {
+      margin-top: -24px;
+    }
   `,
   AppHeader: css`
+    label: AppHeader;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -29,8 +34,8 @@ const styles: ThemeStyles = {
     justify-content: center;
     font-size: calc(10px + 2vmin);
   `,
-  link: css`
-    color: rgb(112, 76, 182);
+  link: (theme: Theme) => css`
+    color: ${theme.colors.primary[0]};
   `,
   navigation: css`
     display: flex;
@@ -46,13 +51,11 @@ function App() {
   return (
     <div css={styles.App}>
       <header css={styles.AppHeader}>
-        <img alt="logo" css={styles.AppLogo} src={logo} />
+        <div css={[styles.AppLogo, fontHarryP]}>
+          <div>Potter</div>
+          <div>Page</div>
+        </div>
         <ul css={styles.navigation}>
-          <li>
-            <NavLink css={styles.link} to="/counter">
-              Counter
-            </NavLink>
-          </li>
           <li>
             <NavLink css={styles.link} to="/sorting-hat">
               Sorting Hat
@@ -60,14 +63,11 @@ function App() {
           </li>
         </ul>
         <Switch>
-          <Route path="/counter">
-            <Counter />
-          </Route>
           <Route path="/sorting-hat">
             <SortingHat />
           </Route>
           <Route path="*">
-            <Redirect to="/counter" />
+            <Redirect to="/sorting-hat" />
           </Route>
         </Switch>
       </header>
