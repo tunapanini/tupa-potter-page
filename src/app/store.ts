@@ -2,9 +2,12 @@ import { Action, ThunkAction, configureStore } from "@reduxjs/toolkit";
 
 import sortingHatReducer from "features/sortingHat/sortingHatSlices";
 
+import themeReducer from "features/theme/themeSlices";
+
 export const store = configureStore({
   reducer: {
     sortingHat: sortingHatReducer,
+    theme: themeReducer,
   },
 });
 

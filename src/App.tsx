@@ -1,20 +1,23 @@
 /** @jsx jsx */
-import { css, jsx } from "@emotion/core";
 
+import { css, jsx } from "@emotion/core";
+import { ThemeProvider } from "emotion-theming";
+import { useSelector } from "react-redux";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 
 import SortingHat from "features/sortingHat/SortingHat";
+import { selectTheme } from "features/theme/themeSlices";
 import { fontHarryP } from "styles/common";
 import { floating } from "styles/keyframes";
-import { Theme } from "styles/theme";
+import { Theme } from "styles/themes";
 
 const styles = {
-  App: css`
+  App: (theme: Theme) => css`
     text-align: center;
+    background-color: ${theme.colors.background};
   `,
   AppLogo: css`
     label: AppLogo;
-    height: 40vmin;
     user-select: none;
     pointer-events: none;
     font-size: 5em;
@@ -48,30 +51,33 @@ const styles = {
 };
 
 function App() {
+  const theme = useSelector(selectTheme);
   return (
-    <div css={styles.App}>
-      <header css={styles.AppHeader}>
-        <div css={[styles.AppLogo, fontHarryP]}>
-          <div>Potter</div>
-          <div>Page</div>
-        </div>
-        <ul css={styles.navigation}>
-          <li>
-            <NavLink css={styles.link} to="/sorting-hat">
-              Sorting Hat
-            </NavLink>
-          </li>
-        </ul>
-        <Switch>
-          <Route path="/sorting-hat">
-            <SortingHat />
-          </Route>
-          <Route path="*">
-            <Redirect to="/sorting-hat" />
-          </Route>
-        </Switch>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div css={styles.App}>
+        <header css={styles.AppHeader}>
+          <div css={[styles.AppLogo, fontHarryP]}>
+            <div>&#167;</div>
+            <div>Page</div>
+          </div>
+          <ul css={styles.navigation}>
+            <li>
+              <NavLink css={styles.link} to="/sorting-hat">
+                Sorting Hat
+              </NavLink>
+            </li>
+          </ul>
+          <Switch>
+            <Route path="/sorting-hat">
+              <SortingHat />
+            </Route>
+            <Route path="*">
+              <Redirect to="/sorting-hat" />
+            </Route>
+          </Switch>
+        </header>
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -13,7 +13,7 @@ import styles from "./sortingHatStyles";
 
 import LoadingContainer from "components/LoadingContainer";
 import { fontHarryP } from "styles/common";
-import { withTheme } from "styles/theme";
+import { withTheme } from "styles/themes";
 
 function SortingHat() {
   const dispatch = useDispatch();

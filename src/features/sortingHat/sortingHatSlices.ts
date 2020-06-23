@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { AppThunk, RootState } from "../../app/store";
 
+import { setTheme } from "features/theme/themeSlices";
 import { getSortingHat } from "services/potterapi";
 
 interface SortingHatState {
@@ -34,6 +35,7 @@ export const setSortingHatAsync = (): AppThunk => (dispatch) => {
   getSortingHat().then((value) => {
     dispatch(setSortingHat(value));
     dispatch(setIsLoading(false));
+    dispatch(setTheme(value));
   });
 };
 

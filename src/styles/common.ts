@@ -1,7 +1,7 @@
 import { css } from "@emotion/core";
 
 import { rotating as rotatingKeyframes } from "./keyframes";
-import { Theme } from "./theme";
+import { Theme } from "./themes";
 
 export const button = (theme: Theme) => css`
   label: button;
@@ -12,7 +12,7 @@ export const button = (theme: Theme) => css`
   padding-right: 12px;
   outline: none;
   border: 2px solid transparent;
-  color: ${theme.colors.textPrimary[0]};
+  color: ${theme.colors.textWhite[0]};
   padding-bottom: 4px;
   cursor: pointer;
   background-color: ${theme.colors.primary[0]};
