@@ -1,20 +1,19 @@
 {
   "files": {
-    "main.js": "https://tunapanini.github.io/tupa-potter-page/static/js/main.dc499cad.chunk.js",
-    "main.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/main.dc499cad.chunk.js.map",
+    "main.js": "https://tunapanini.github.io/tupa-potter-page/static/js/main.03825b73.chunk.js",
+    "main.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/main.03825b73.chunk.js.map",
     "runtime-main.js": "https://tunapanini.github.io/tupa-potter-page/static/js/runtime-main.c66b2b75.js",
     "runtime-main.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/runtime-main.c66b2b75.js.map",
-    "static/js/2.0ecba1d2.chunk.js": "https://tunapanini.github.io/tupa-potter-page/static/js/2.0ecba1d2.chunk.js",
-    "static/js/2.0ecba1d2.chunk.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/2.0ecba1d2.chunk.js.map",
+    "static/js/2.5aaf757c.chunk.js": "https://tunapanini.github.io/tupa-potter-page/static/js/2.5aaf757c.chunk.js",
+    "static/js/2.5aaf757c.chunk.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/2.5aaf757c.chunk.js.map",
     "index.html": "https://tunapanini.github.io/tupa-potter-page/index.html",
-    "precache-manifest.9487ffc054582e66febe4e77f06f07fa.js": "https://tunapanini.github.io/tupa-potter-page/precache-manifest.9487ffc054582e66febe4e77f06f07fa.js",
+    "precache-manifest.3ae99ff4ccadba6ec51faea9f7f2b543.js": "https://tunapanini.github.io/tupa-potter-page/precache-manifest.3ae99ff4ccadba6ec51faea9f7f2b543.js",
     "service-worker.js": "https://tunapanini.github.io/tupa-potter-page/service-worker.js",
-    "static/js/2.0ecba1d2.chunk.js.LICENSE.txt": "https://tunapanini.github.io/tupa-potter-page/static/js/2.0ecba1d2.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "https://tunapanini.github.io/tupa-potter-page/static/media/logo.8dad8028.svg"
+    "static/js/2.5aaf757c.chunk.js.LICENSE.txt": "https://tunapanini.github.io/tupa-potter-page/static/js/2.5aaf757c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c66b2b75.js",
-    "static/js/2.0ecba1d2.chunk.js",
-    "static/js/main.dc499cad.chunk.js"
+    "static/js/2.5aaf757c.chunk.js",
+    "static/js/main.03825b73.chunk.js"
   ]
 }
