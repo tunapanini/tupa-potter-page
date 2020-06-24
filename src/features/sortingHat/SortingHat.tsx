@@ -26,6 +26,8 @@ function SortingHat() {
     }
   }, [dispatch, sortingHat]);
 
+  const handleClick = () => dispatch(setSortingHatAsync());
+
   return (
     <div>
       <div css={styles.row}>
@@ -39,10 +41,7 @@ function SortingHat() {
         </LoadingContainer>
       </div>
       <div css={styles.row}>
-        <button
-          css={withTheme([styles.button])}
-          onClick={() => dispatch(setSortingHatAsync())}
-        >
+        <button css={withTheme([styles.button])} onClick={handleClick}>
           Randomize
         </button>
       </div>

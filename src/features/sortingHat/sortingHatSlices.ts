@@ -1,6 +1,10 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { AppThunk, RootState } from "../../app/store";
+import { Epic, ofType } from "redux-observable";
+import { concat, defer, of } from "rxjs";
+import { mergeMap, switchMapTo } from "rxjs/operators";
+
+import { RootState } from "app/store";
 
 import { setTheme } from "features/theme/themeSlices";
 import { getSortingHat } from "services/potterapi";
@@ -25,19 +29,34 @@ export const sortingHatSlice = createSlice({
     setIsLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
+    setSortingHatAsync: () => {},
   },
 });
 
-export const { setSortingHat, setIsLoading } = sortingHatSlice.actions;
+export const {
+  setSortingHat,
+  setIsLoading,
+  setSortingHatAsync,
+} = sortingHatSlice.actions;
 
-export const setSortingHatAsync = (): AppThunk => (dispatch) => {
-  dispatch(setIsLoading(true));
-  getSortingHat().then((value) => {
-    dispatch(setSortingHat(value));
-    dispatch(setIsLoading(false));
-    dispatch(setTheme(value));
-  });
-};
+export const setSortingHatEpic: Epic = (action$) =>
+  action$.pipe(
+    ofType(setSortingHatAsync.type),
+    switchMapTo(
+      concat(
+        of(setIsLoading(true)),
+        defer(() => getSortingHat()).pipe(
+          mergeMap((value) =>
+            concat(
+              of(setSortingHat(value)),
+              of(setIsLoading(false)),
+              of(setTheme(value))
+            )
+          )
+        )
+      )
+    )
+  );
 
 export const selectSortingHat = (state: RootState) => state.sortingHat.value;
 export const selectSortingHatIsLoading = (state: RootState) =>
