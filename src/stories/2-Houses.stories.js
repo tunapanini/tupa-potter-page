@@ -1,19 +1,21 @@
-import { ThemeProvider } from "emotion-theming";
 import React from "react";
 
-import withProvider from "../../.storybook/decorators/withProvider";
+import { withStore } from "./helpers/decorators";
 
 import Houses from "features/house/Houses";
-import themes from "styles/themes";
 
 export default {
   title: "Houses",
   component: Houses,
   decorators: [
-    (storyFn) => (
-      <ThemeProvider theme={themes.default}>{storyFn()}</ThemeProvider>
-    ),
-    withProvider,
+    withStore({
+      house: {
+        houses: [
+          { _id: 1, name: "fake-house-name-1" },
+          { _id: 2, name: "fkae-house-name-2" },
+        ],
+      },
+    }),
   ],
 };
 

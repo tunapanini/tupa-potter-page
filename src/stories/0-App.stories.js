@@ -1,19 +1,35 @@
+import { select } from "@storybook/addon-knobs";
 import React from "react";
 
-import { MemoryRouter } from "react-router-dom";
-
-import withProvider from "../../.storybook/decorators/withProvider";
+import { withRouter, withStore } from "./helpers/decorators";
 
 import App from "App";
+
+import themes from "styles/themes";
 
 export default {
   title: "App",
   component: App,
-  decorators: [
-    withProvider,
-    (storyFn) => <MemoryRouter>{storyFn()}</MemoryRouter>,
-  ],
+  decorators: [withRouter({ initialEntries: ["/sorting-hats"] })],
+  argTypes: {
+    theme: {
+      control: "inline-radio",
+      options: [themes.default, themes.gryffindor],
+    },
+  },
 };
 
-// TODO: Add Theme Stories
-export const Default = () => <App />;
+export const Default = () => {
+  return withStore({
+    theme: {
+      value: select("theme", themes, themes.default),
+    },
+    sortingHat: {
+      value: "Gryffindor",
+      isLoading: false,
+    },
+    house: {
+      houses: [],
+    },
+  })(() => <App />);
+};

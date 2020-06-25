@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-import { RootState } from "../../app/store";
+import { RootState } from "app/store";
 
 import { HouseName } from "services/potterapi";
 import themes, { Theme, getThemeByHouse } from "styles/themes";

@@ -1,6 +1,6 @@
 import { SerializedStyles } from "@emotion/core";
 
-import { HouseName } from "./../services/potterapi";
+import { HouseName } from "services/potterapi";
 
 interface ThemeColor {
   primary: string[];

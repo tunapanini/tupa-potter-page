@@ -4,7 +4,7 @@ import { Epic, ofType } from "redux-observable";
 import { from, of } from "rxjs";
 import { mergeMap, switchMapTo } from "rxjs/operators";
 
-import { Dependencies, RootState } from "./../../app/store";
+import { Dependencies, RootState } from "app/store";
 
 import { House } from "services/potterapi";
 

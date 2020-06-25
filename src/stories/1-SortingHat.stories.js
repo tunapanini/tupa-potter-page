@@ -1,20 +1,19 @@
-import { ThemeProvider } from "emotion-theming";
+import { boolean, text } from "@storybook/addon-knobs";
 import React from "react";
 
-import withProvider from "../../.storybook/decorators/withProvider";
+import { withStore } from "./helpers/decorators";
 
 import SortingHat from "features/sortingHat/SortingHat";
-import themes from "styles/themes";
 
 export default {
   title: "SortingHat",
   component: SortingHat,
-  decorators: [
-    (storyFn) => (
-      <ThemeProvider theme={themes.default}>{storyFn()}</ThemeProvider>
-    ),
-    withProvider,
-  ],
 };
 
-export const Default = () => <SortingHat />;
+export const Default = () =>
+  withStore({
+    sortingHat: {
+      value: text("value", "Gryffindor"),
+      isLoading: boolean("isLoading", false),
+    },
+  })(() => <SortingHat />);
