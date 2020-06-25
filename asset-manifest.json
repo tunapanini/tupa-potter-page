@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "https://tunapanini.github.io/tupa-potter-page/static/js/main.84d62b1f.chunk.js",
-    "main.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/main.84d62b1f.chunk.js.map",
+    "main.js": "https://tunapanini.github.io/tupa-potter-page/static/js/main.432e8c66.chunk.js",
+    "main.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/main.432e8c66.chunk.js.map",
     "runtime-main.js": "https://tunapanini.github.io/tupa-potter-page/static/js/runtime-main.c66b2b75.js",
     "runtime-main.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/runtime-main.c66b2b75.js.map",
-    "static/js/2.f65ddb3c.chunk.js": "https://tunapanini.github.io/tupa-potter-page/static/js/2.f65ddb3c.chunk.js",
-    "static/js/2.f65ddb3c.chunk.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/2.f65ddb3c.chunk.js.map",
+    "static/js/2.ee4a1964.chunk.js": "https://tunapanini.github.io/tupa-potter-page/static/js/2.ee4a1964.chunk.js",
+    "static/js/2.ee4a1964.chunk.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/2.ee4a1964.chunk.js.map",
     "index.html": "https://tunapanini.github.io/tupa-potter-page/index.html",
-    "precache-manifest.b77fb2580582b96092d3fae814779110.js": "https://tunapanini.github.io/tupa-potter-page/precache-manifest.b77fb2580582b96092d3fae814779110.js",
+    "precache-manifest.08bd4d253d3c90137b350af557617005.js": "https://tunapanini.github.io/tupa-potter-page/precache-manifest.08bd4d253d3c90137b350af557617005.js",
     "service-worker.js": "https://tunapanini.github.io/tupa-potter-page/service-worker.js",
-    "static/js/2.f65ddb3c.chunk.js.LICENSE.txt": "https://tunapanini.github.io/tupa-potter-page/static/js/2.f65ddb3c.chunk.js.LICENSE.txt"
+    "static/js/2.ee4a1964.chunk.js.LICENSE.txt": "https://tunapanini.github.io/tupa-potter-page/static/js/2.ee4a1964.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c66b2b75.js",
-    "static/js/2.f65ddb3c.chunk.js",
-    "static/js/main.84d62b1f.chunk.js"
+    "static/js/2.ee4a1964.chunk.js",
+    "static/js/main.432e8c66.chunk.js"
   ]
 }
