@@ -1,6 +1,6 @@
 import { SerializedStyles } from "@emotion/core";
 
-import { House } from "./../services/potterapi";
+import { HouseName } from "./../services/potterapi";
 
 interface ThemeColor {
   primary: string[];
@@ -85,7 +85,7 @@ export const withTheme = (
   ];
 };
 
-export const getThemeByHouse = (house: House) =>
+export const getThemeByHouse = (house: HouseName) =>
   ({
     Ravenclaw: ravenclaw,
     Slytherin: slytherin,

@@ -5,6 +5,7 @@ import { ThemeProvider } from "emotion-theming";
 import { useSelector } from "react-redux";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 
+import Houses from "features/house/Houses";
 import SortingHat from "features/sortingHat/SortingHat";
 import { selectTheme } from "features/theme/themeSlices";
 import { fontHarryP } from "styles/common";
@@ -70,6 +71,9 @@ function App() {
           <Switch>
             <Route path="/sorting-hat">
               <SortingHat />
+            </Route>
+            <Route path="/houses">
+              <Houses />
             </Route>
             <Route path="*">
               <Redirect to="/sorting-hat" />

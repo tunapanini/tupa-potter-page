@@ -4,10 +4,9 @@ import { Epic, ofType } from "redux-observable";
 import { concat, defer, of } from "rxjs";
 import { mergeMap, switchMapTo } from "rxjs/operators";
 
-import { RootState } from "app/store";
+import { Dependencies, RootState } from "app/store";
 
 import { setTheme } from "features/theme/themeSlices";
-import { getSortingHat } from "services/potterapi";
 
 interface SortingHatState {
   value: string;
@@ -39,13 +38,17 @@ export const {
   setSortingHatAsync,
 } = sortingHatSlice.actions;
 
-export const setSortingHatEpic: Epic = (action$) =>
+export const setSortingHatEpic: Epic = (
+  action$,
+  state$,
+  { potterapi }: Dependencies
+) =>
   action$.pipe(
     ofType(setSortingHatAsync.type),
     switchMapTo(
       concat(
         of(setIsLoading(true)),
-        defer(() => getSortingHat()).pipe(
+        defer(() => potterapi.getSortingHat()).pipe(
           mergeMap((value) =>
             concat(
               of(setSortingHat(value)),

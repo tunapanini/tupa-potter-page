@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { RootState } from "../../app/store";
 
-import { House } from "services/potterapi";
+import { HouseName } from "services/potterapi";
 import themes, { Theme, getThemeByHouse } from "styles/themes";
 
 interface ThemeState {
@@ -17,7 +17,7 @@ export const themeSlice = createSlice({
   name: "currentTheme",
   initialState,
   reducers: {
-    setTheme: (state, action: PayloadAction<House>) => {
+    setTheme: (state, action: PayloadAction<HouseName>) => {
       state.value = getThemeByHouse(action.payload);
     },
   },
