@@ -1,19 +1,18 @@
 import React from "react";
 
-import { withStore } from "./helpers/decorators";
+import { withRouter, withStore } from "./helpers/decorators";
+
+import { getHousesMock } from "./helpers/mocks";
 
 import Houses from "features/house/Houses";
-
 export default {
   title: "Houses",
   component: Houses,
   decorators: [
+    withRouter({ initialEntries: ["/houses"] }),
     withStore({
       house: {
-        houses: [
-          { _id: 1, name: "fake-house-name-1" },
-          { _id: 2, name: "fkae-house-name-2" },
-        ],
+        houses: getHousesMock(),
       },
     }),
   ],
