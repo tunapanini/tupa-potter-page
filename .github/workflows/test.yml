@@ -1,0 +1,19 @@
+name: Test on Develop
+on:
+  push:
+    branches:
+      develop**
+jobs:
+  test-on-develop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false 
+
+      - name: Install Dependencies
+        run: yarn --frozen-lockfile
+        
+      - name: Test 🧪
+        run: yarn test  # Test Script Here
