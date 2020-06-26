@@ -39,6 +39,7 @@ export const setHousesEpic: Epic = (
     switchMapTo(
       from(potterapi.getHouses()).pipe(
         mergeMap((value) => of(setHouses(value)))
+        // TODO: catchError for bad promise
       )
     )
   );
