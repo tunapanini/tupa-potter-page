@@ -24,7 +24,7 @@ jobs:
         run: yarn build  # Build Script Here
         env:
           PUBLIC_URL: https://tunapanini.github.io/tupa-potter-page
-          REACT_APP_POTTER_API_KEY: ${{ secrets.REACT_APP_POTTER_API_KEY }}
+          REACT_APP_POTTER_API_KEY: '${{ secrets.REACT_APP_POTTER_API_KEY }}'
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
