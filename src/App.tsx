@@ -3,8 +3,9 @@
 import { css, jsx } from "@emotion/core";
 import { ThemeProvider } from "emotion-theming";
 import { useSelector } from "react-redux";
-import { NavLink, Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 
+import Navigation from "components/Navigation";
 import Houses from "features/house/Houses";
 import SortingHat from "features/sortingHat/SortingHat";
 import { selectTheme } from "features/theme/themeSlices";
@@ -38,17 +39,6 @@ const styles = {
     justify-content: center;
     font-size: calc(10px + 2vmin);
   `,
-  link: (theme: Theme) => css`
-    color: ${theme.colors.primary[0]};
-  `,
-  navigation: css`
-    display: flex;
-
-    & > li {
-      margin: 0 12px;
-      padding: 8px 0;
-    }
-  `,
 };
 
 function App() {
@@ -57,17 +47,12 @@ function App() {
     <ThemeProvider theme={theme}>
       <div css={styles.App}>
         <header css={styles.AppHeader}>
+          {/* TODO: Divide top-fixed AppHeader with AppContent */}
           <div css={[styles.AppLogo, fontHarryP]}>
             <div>&#167;</div>
             <div>Page</div>
           </div>
-          <ul css={styles.navigation}>
-            <li>
-              <NavLink css={styles.link} to="/sorting-hat">
-                Sorting Hat
-              </NavLink>
-            </li>
-          </ul>
+          <Navigation />
           <Switch>
             <Route path="/sorting-hat">
               <SortingHat />
