@@ -28,7 +28,7 @@ const styles = {
     justify-content: center;
     background-color: ${theme.colors.primary[0]};
     color: ${theme.colors.textWhite};
-    font-size: calc(100vw / 16);
+    font-size: min(6vw, 4rem);
     transform: 1s background-color;
     &:hover {
       background-color: ${theme.colors.secondary[0]};
