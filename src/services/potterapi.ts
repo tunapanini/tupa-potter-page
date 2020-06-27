@@ -14,10 +14,11 @@ export type House = {
 };
 
 class Potterapi {
-  #apiUrl = "https://www.potterapi.com/v1";
+  #apiUrl: string;
   #apiKey: string;
 
   constructor() {
+    this.#apiUrl = process.env.REACT_APP_POTTER_API_URL!;
     this.#apiKey = process.env.REACT_APP_POTTER_API_KEY!;
   }
 
@@ -31,7 +32,7 @@ class Potterapi {
   }
 
   async getHouses(): Promise<House[]> {
-    const response = await fetch(`${this.#apiUrl}/houses?key=${this.#apiKey}`);
+    const response = await fetch(`${this.#apiUrl}/houses`);
     if (response.ok) {
       return response.json();
     } else if (response.status >= 400 && response.status < 500) {

@@ -10,6 +10,14 @@
 - [Storybook](https://storybook.js.org/)
 - [Husky](https://github.com/typicode/husky) w\ [lint-staged](https://github.com/okonet/lint-staged)
 
+## Deployment
+
+아래 커맨드로 Firebase Hosting을 사용하여 배포한다.
+
+```
+yarn deploy
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -73,3 +81,50 @@ Husky + lint-staged 를 이용하여 스테이징된 파일에 대하여 미리 
 
 [Husky](https://github.com/typicode/husky)
 [lint-staged](https://github.com/okonet/lint-staged)
+
+# Firebase Cloud Functions
+
+## Set config
+
+```bash
+cd <project-root>/functions
+firebase functions:config:set potterapi.baseurl="https://www.potterapi.com/v1"
+```
+
+## Get config
+
+```bash
+cd <project-root>/functions
+firebase functions:config:get
+```
+
+## Copy config for local emulator
+
+아래 커맨드를 실행하면 `<project-root>functions/.runtimeconfig.json`에 저장되고, emulator 실행 시 config로 불러와진다. 해당 설정파일은 `.gitignore`에 추가되어있다.
+
+```bash
+cd <project-root>/functions
+yarn setconfig
+```
+
+이후 allowedorigins에 로컬 프론트엔드 origin 추가하기
+
+```
+{
+    "allowedorigins": "https://tunapanini.github.io,https://tupa-potter-page.web.app,https://localhost:3000"
+}
+```
+
+## Run local emulator (serve)
+
+```bash
+cd <project-root>/functions
+yarn serve
+```
+
+## Deploy
+
+```bash
+cd <project-root>/functions
+yarn deploy
+```
