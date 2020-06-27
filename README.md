@@ -1,5 +1,7 @@
 # tupa-potter-page
 
+[App](https://tupa-potter-page.web.app) & [Storybook](https://tupa-potter-storybook.web.app)
+
 [potterapi](https://www.potterapi.com/) API를 활용하여 구현한 간단한 React + Redux 웹앱
 
 - [Create React App](https://github.com/facebook/create-react-app)
