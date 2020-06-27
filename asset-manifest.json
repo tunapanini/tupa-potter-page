@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "https://tunapanini.github.io/tupa-potter-page/static/js/main.dc6eb875.chunk.js",
-    "main.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/main.dc6eb875.chunk.js.map",
-    "runtime-main.js": "https://tunapanini.github.io/tupa-potter-page/static/js/runtime-main.c66b2b75.js",
-    "runtime-main.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/runtime-main.c66b2b75.js.map",
-    "static/js/2.ed416bb3.chunk.js": "https://tunapanini.github.io/tupa-potter-page/static/js/2.ed416bb3.chunk.js",
-    "static/js/2.ed416bb3.chunk.js.map": "https://tunapanini.github.io/tupa-potter-page/static/js/2.ed416bb3.chunk.js.map",
-    "index.html": "https://tunapanini.github.io/tupa-potter-page/index.html",
-    "precache-manifest.06612b0a5b031297d8229d1f6064e951.js": "https://tunapanini.github.io/tupa-potter-page/precache-manifest.06612b0a5b031297d8229d1f6064e951.js",
-    "service-worker.js": "https://tunapanini.github.io/tupa-potter-page/service-worker.js",
-    "static/js/2.ed416bb3.chunk.js.LICENSE.txt": "https://tunapanini.github.io/tupa-potter-page/static/js/2.ed416bb3.chunk.js.LICENSE.txt"
+    "main.js": "https://tupa-potter-page.web.app/static/js/main.c7fe9d56.chunk.js",
+    "main.js.map": "https://tupa-potter-page.web.app/static/js/main.c7fe9d56.chunk.js.map",
+    "runtime-main.js": "https://tupa-potter-page.web.app/static/js/runtime-main.249cccdf.js",
+    "runtime-main.js.map": "https://tupa-potter-page.web.app/static/js/runtime-main.249cccdf.js.map",
+    "static/js/2.ed416bb3.chunk.js": "https://tupa-potter-page.web.app/static/js/2.ed416bb3.chunk.js",
+    "static/js/2.ed416bb3.chunk.js.map": "https://tupa-potter-page.web.app/static/js/2.ed416bb3.chunk.js.map",
+    "index.html": "https://tupa-potter-page.web.app/index.html",
+    "precache-manifest.4bea5686d4bfe81e516147dd9e3ab8e7.js": "https://tupa-potter-page.web.app/precache-manifest.4bea5686d4bfe81e516147dd9e3ab8e7.js",
+    "service-worker.js": "https://tupa-potter-page.web.app/service-worker.js",
+    "static/js/2.ed416bb3.chunk.js.LICENSE.txt": "https://tupa-potter-page.web.app/static/js/2.ed416bb3.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.c66b2b75.js",
+    "static/js/runtime-main.249cccdf.js",
     "static/js/2.ed416bb3.chunk.js",
-    "static/js/main.dc6eb875.chunk.js"
+    "static/js/main.c7fe9d56.chunk.js"
   ]
 }
