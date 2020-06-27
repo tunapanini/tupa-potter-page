@@ -1,8 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { Epic, ofType } from "redux-observable";
-import { from, of } from "rxjs";
-import { mergeMap, switchMapTo } from "rxjs/operators";
+import { defer, of } from "rxjs";
+import { catchError, map, switchMapTo, throttleTime } from "rxjs/operators";
 
 import { Dependencies, RootState } from "app/store";
 
@@ -10,40 +10,54 @@ import { House } from "services/potterapi";
 
 interface HouseState {
   houses: House[];
+  error: Error | null;
 }
 
 const initialState: HouseState = {
   houses: [],
+  error: null,
 };
 
 export const houseSlice = createSlice({
   name: "house",
   initialState,
   reducers: {
-    setHouses: (state, action: PayloadAction<House[]>) => {
+    fetchHousesFulfilled: (state, action: PayloadAction<House[]>) => {
       state.houses = action.payload;
+      state.error = null;
     },
-    setHousesAsync: () => {},
+    fetchHousesRejected: (state, action: PayloadAction<Error>) => {
+      state.houses = [];
+      state.error = action.payload;
+    },
+    fetchHouses: () => {},
   },
 });
 
-export const { setHouses, setHousesAsync } = houseSlice.actions;
+export const {
+  fetchHousesFulfilled,
+  fetchHouses,
+  fetchHousesRejected,
+} = houseSlice.actions;
 
-export const setHousesEpic: Epic = (
+export const fetchHousesEpic: Epic = (
   action$,
   state$,
   { potterapi }: Dependencies
 ) =>
   action$.pipe(
-    ofType(setHousesAsync.type),
+    ofType(fetchHouses.type),
+    throttleTime(1000),
     switchMapTo(
-      from(potterapi.getHouses()).pipe(
-        mergeMap((value) => of(setHouses(value)))
-        // TODO: catchError for bad promise
+      defer(() => potterapi.getHouses()).pipe(
+        map((value) => fetchHousesFulfilled(value)),
+        catchError((error) => of(fetchHousesRejected(error)))
       )
     )
   );
 
 export const selectHouses = (state: RootState) => state.house.houses;
+
+export const selectHousesError = (state: RootState) => state.house.error;
 
 export default houseSlice.reducer;

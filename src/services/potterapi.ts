@@ -22,13 +22,23 @@ class Potterapi {
   }
 
   async getSortingHat(): Promise<HouseName> {
-    const response = fetch(`${this.#apiUrl}/sortingHat`);
-    return (await response).json();
+    const response = await fetch(`${this.#apiUrl}/sortingHat`);
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error();
+    }
   }
 
   async getHouses(): Promise<House[]> {
-    const response = fetch(`${this.#apiUrl}/houses?key=${this.#apiKey}`);
-    return (await response).json();
+    const response = await fetch(`${this.#apiUrl}/houses?key=${this.#apiKey}`);
+    if (response.ok) {
+      return response.json();
+    } else if (response.status >= 400 && response.status < 500) {
+      throw new Error("Bad Request");
+    } else {
+      throw new Error();
+    }
   }
 }
 

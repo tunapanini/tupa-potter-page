@@ -3,7 +3,7 @@ import { css, jsx } from "@emotion/core";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectHouses, setHousesAsync } from "./houseSlice";
+import { fetchHouses, selectHouses, selectHousesError } from "./houseSlice";
 
 import ResponsiveSquare from "components/ReponsiveSquare";
 import { fontHarryP } from "styles/common";
@@ -38,21 +38,31 @@ const styles = {
 
 function Houses() {
   const houses = useSelector(selectHouses);
+  const error = useSelector(selectHousesError);
+
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(setHousesAsync());
+    dispatch(fetchHouses());
   });
 
   return (
     <div css={[styles.full, styles.wrapper]}>
-      {houses.map((house) => (
-        <ResponsiveSquare innerCss={[styles.full]} key={house._id} width="25%">
-          <span css={withTheme([fontHarryP, styles.full, styles.houseLink])}>
-            {house.name}
-          </span>
-        </ResponsiveSquare>
-      ))}
+      {error
+        ? "Error"
+        : houses.map((house) => (
+            <ResponsiveSquare
+              innerCss={[styles.full]}
+              key={house._id}
+              width="25%"
+            >
+              <span
+                css={withTheme([fontHarryP, styles.full, styles.houseLink])}
+              >
+                {house.name}
+              </span>
+            </ResponsiveSquare>
+          ))}
     </div>
   );
 }

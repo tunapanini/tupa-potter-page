@@ -50,11 +50,7 @@ export const setSortingHatEpic: Epic = (
         of(setIsLoading(true)),
         defer(() => potterapi.getSortingHat()).pipe(
           mergeMap((value) =>
-            concat(
-              of(setSortingHat(value)),
-              of(setIsLoading(false)),
-              of(setTheme(value))
-            )
+            of(setSortingHat(value), setIsLoading(false), setTheme(value))
           )
         )
       )
