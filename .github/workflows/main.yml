@@ -21,11 +21,13 @@ jobs:
           CI: true
         
       - name: Build 🔧
-        run: yarn build  # Build Script Here
+        shell: bash
         env:
           PUBLIC_URL: https://tunapanini.github.io/tupa-potter-page
           REACT_APP_POTTER_API_KEY: '${{ secrets.REACT_APP_POTTER_API_KEY }}'
-
+        run: yarn build "$REACT_APP_POTTER_API_KEY"
+        # https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
+          
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
