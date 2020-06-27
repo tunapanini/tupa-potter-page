@@ -62,8 +62,8 @@ jobs:
       - name: Download Production Storybook Artifact
         uses: actions/download-artifact@master
         with:
-          name: storybook-statc
-          path: storybook-statc
+          name: storybook-static
+          path: storybook-static
 
       - name: Deploy App to Firebase 🔥
         uses: w9jds/firebase-action@master
