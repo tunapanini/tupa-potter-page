@@ -34,8 +34,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --fix --cache --ext js,jsx,ts,tsx",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
-    "deploy": "yarn build;firebase deploy"
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"

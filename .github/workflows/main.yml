@@ -4,7 +4,8 @@ on:
     branches:
       - master
 jobs:
-  build-and-deploy:
+  build:
+    name: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -22,9 +23,21 @@ jobs:
         
       - name: Build 🔧
         run: yarn build  # Build Script Here
-        env:
-          PUBLIC_URL: https://tunapanini.github.io/tupa-potter-page
-          REACT_APP_POTTER_API_KEY: '${{ secrets.REACT_APP_POTTER_API_KEY }}'
+
+      - name: Archive Production Build Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: build
+          path: build
+      
+      - name: Build Storybook 🔧
+        run: yarn build-storybook
+
+      - name: Archive Production Storybook Artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: storybook-static
+          path: storybook-static
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
@@ -32,3 +45,36 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: build  # build result path Here (CRA: build, vue-cli: dist)
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+
+      - name: Download Production Build Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: build
+          path: build
+
+      - name: Download Production Storybook Artifact
+        uses: actions/download-artifact@master
+        with:
+          name: storybook-statc
+          path: storybook-statc
+
+      - name: Deploy App to Firebase 🔥
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting:app
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+      - name: Deploy Storybook to Firebase 🔥
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting:storybook
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

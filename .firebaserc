@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "tupa-potter-page"
+  },
+  "targets": {
+    "tupa-potter-page": {
+      "hosting": {
+        "app": [
+          "tupa-potter-page"
+        ],
+        "storybook": [
+          "tupa-potter-storybook"
+        ]
+      }
+    }
   }
 }
