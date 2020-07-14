@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "https://tupa-potter-page.web.app/precache-manifest.4bea5686d4bfe81e516147dd9e3ab8e7.js"
+  "https://tupa-potter-page.web.app/precache-manifest.62ba7ac9ba478f5245f111a9d8e68291.js"
 );
 
 self.addEventListener('message', (event) => {
