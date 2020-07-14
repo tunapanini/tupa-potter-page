@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 
 import AppHeader from "components/AppHeader";
+import HouseDetail from "features/house/HouseDetail";
 import Houses from "features/house/Houses";
 import SortingHat from "features/sortingHat/SortingHat";
 import { selectTheme } from "features/theme/themeSlices";
@@ -34,6 +35,9 @@ function App() {
           <Switch>
             <Route path="/sorting-hat">
               <SortingHat />
+            </Route>
+            <Route path="/houses/:houseId">
+              <HouseDetail />
             </Route>
             <Route path="/houses">
               <Houses />

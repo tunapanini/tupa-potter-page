@@ -14,7 +14,7 @@ export function createMockStore(state) {
 
 export const getHousesMock = () => [
   {
-    _id: "5a05e2b252f721a3cf2ea33f",
+    _id: "fake-house-id",
     name: "Gryffindor",
     mascot: "lion",
     headOfHouse: "Minerva McGonagall",

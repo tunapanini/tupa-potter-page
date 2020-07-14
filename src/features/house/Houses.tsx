@@ -2,6 +2,7 @@
 import { css, jsx } from "@emotion/core";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { fetchHouses, selectHouses, selectHousesError } from "./houseSlice";
 
@@ -56,11 +57,13 @@ function Houses() {
               key={house._id}
               width="25%"
             >
-              <span
-                css={withTheme([fontHarryP, styles.full, styles.houseLink])}
-              >
-                {house.name}
-              </span>
+              <Link to={`/houses/${house._id}`}>
+                <span
+                  css={withTheme([fontHarryP, styles.full, styles.houseLink])}
+                >
+                  {house.name}
+                </span>
+              </Link>
             </ResponsiveSquare>
           ))}
     </div>

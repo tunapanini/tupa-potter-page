@@ -7,7 +7,7 @@ export type House = {
   headOfHouse: string;
   houseGhost: string;
   mascot: string;
-  members: string[];
+  members: string[]; // FIXME: string or {_id, name}
   name: HouseName;
   school: string;
   values: string[];
