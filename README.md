@@ -12,11 +12,19 @@
 - [Storybook](https://storybook.js.org/)
 - [Husky](https://github.com/typicode/husky) w\ [lint-staged](https://github.com/okonet/lint-staged)
 
-## Deployment
+## Requirements
 
-아래 커맨드로 Firebase Hosting을 사용하여 배포한다.
+firebase-tools 설치
 
 ```
+yarn global add firebase-tools
+```
+
+## Deployment
+
+아래 커맨드로 Firebase Hosting을 사용하여 배포합니다.
+
+```]
 yarn deploy
 ```
 
@@ -86,6 +94,14 @@ Husky + lint-staged 를 이용하여 스테이징된 파일에 대하여 미리 
 
 # Firebase Cloud Functions
 
+## Install
+
+```bash
+yarn global firebase-tools
+cd <project-root>/functions
+yarn
+```
+
 ## Set config
 
 ```bash
@@ -95,6 +111,8 @@ firebase functions:config:set potterapi.baseurl="https://www.potterapi.com/v1"
 
 ## Get config
 
+아래 커맨드를 실행하면, firebase 에 설정된 config 를 확인할 수 있습니다.
+
 ```bash
 cd <project-root>/functions
 firebase functions:config:get
@@ -102,18 +120,18 @@ firebase functions:config:get
 
 ## Copy config for local emulator
 
-아래 커맨드를 실행하면 `<project-root>functions/.runtimeconfig.json`에 저장되고, emulator 실행 시 config로 불러와진다. 해당 설정파일은 `.gitignore`에 추가되어있다.
+아래 커맨드를 실행하면 firebase 에 설정된 config가 `<project-root>functions/.runtimeconfig.json`에 저장되고, emulator 실행 시 불러올 수 있습니다.
 
 ```bash
 cd <project-root>/functions
 yarn setconfig
 ```
 
-이후 allowedorigins에 로컬 프론트엔드 origin 추가하기
+이후 아래와 같이 allowedorigins에 로컬 프론트엔드 origin을 추가해야 테스트할 수 있습니다.
 
 ```
-{
-    "allowedorigins": "https://tunapanini.github.io,https://tupa-potter-page.web.app,https://localhost:3000"
+{`${this.#apiUrl}/houses`
+    "allowedorigins": "https://tunapanini.github.io,https://tupa-potter-page.web.app,http://localhost:3000"
 }
 ```
 

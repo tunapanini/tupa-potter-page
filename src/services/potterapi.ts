@@ -1,3 +1,6 @@
+import { Observable } from "rxjs";
+import { ajax } from "rxjs/ajax";
+
 export type HouseName = "Ravenclaw" | "Slytherin" | "Gryffindor" | "Hufflepuff";
 
 export type House = {
@@ -22,25 +25,10 @@ class Potterapi {
     this.#apiKey = process.env.REACT_APP_POTTER_API_KEY!;
   }
 
-  async getSortingHat(): Promise<HouseName> {
-    const response = await fetch(`${this.#apiUrl}/sortingHat`);
-    if (response.ok) {
-      return response.json();
-    } else {
-      throw new Error();
-    }
-  }
+  getSortingHat = (): Observable<HouseName> =>
+    ajax.getJSON(`${this.#apiUrl}/sortingHat`);
 
-  async getHouses(): Promise<House[]> {
-    const response = await fetch(`${this.#apiUrl}/houses`);
-    if (response.ok) {
-      return response.json();
-    } else if (response.status >= 400 && response.status < 500) {
-      throw new Error("Bad Request");
-    } else {
-      throw new Error();
-    }
-  }
+  getHouses = (): Observable<House[]> => ajax.getJSON(`${this.#apiUrl}/houses`);
 }
 
 export default new Potterapi();
